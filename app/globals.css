@@ -1,0 +1,127 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #030712;
+  --color-surface: #0f172a;
+  --color-border: #1e293b;
+  --color-primary: #8b5cf6;
+  --color-secondary: #06b6d4;
+  --color-success: #10b981;
+  --color-text: #f9fafb;
+  --color-muted: #6b7280;
+
+  --font-family-sans: "Inter", system-ui, sans-serif;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #030712;
+    color: #f9fafb;
+    font-family: "Inter", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer utilities {
+  .animate-fade-up {
+    animation: fadeUp 0.4s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.4s ease-out forwards;
+  }
+
+  .animate-pulse-skeleton {
+    animation: pulseSkeleton 1.5s ease-in-out infinite;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes pulseSkeleton {
+    0%, 100% {
+      opacity: 0.4;
+    }
+    50% {
+      opacity: 0.8;
+    }
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+    color: #f9fafb;
+    font-weight: 600;
+    padding: 0.625rem 1.25rem;
+    border-radius: 0.5rem;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+    transform: translateY(-1px);
+  }
+
+  .btn-primary:active {
+    transform: translateY(0);
+  }
+
+  .card-surface {
+    background-color: #0f172a;
+    border: 1px solid #1e293b;
+    border-radius: 1rem;
+  }
+
+  .card-hover {
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+
+  .card-hover:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 32px rgba(139, 92, 246, 0.15);
+    border-color: #8b5cf6;
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, #8b5cf6, #06b6d4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glow-primary {
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+  }
+
+  .stagger-1 { animation-delay: 80ms; }
+  .stagger-2 { animation-delay: 160ms; }
+  .stagger-3 { animation-delay: 240ms; }
+  .stagger-4 { animation-delay: 320ms; }
+  .stagger-5 { animation-delay: 400ms; }
+  .stagger-6 { animation-delay: 480ms; }
+}
